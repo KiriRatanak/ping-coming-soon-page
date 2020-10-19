@@ -1,0 +1,264 @@
+/*Spacing*/
+$space-xxs: 2px;
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 32px;
+$space-xl: 64px;
+$space-xxl: 128px;
+
+/*Font*/
+$default-font: 'Libre Franklin', sans-serif;
+$default-font-size: 16px;
+$header-font-size: 2.5rem;
+$body-font-size: 1.25rem;
+$mobile-header-size: 1.25rem;
+$mobile-body-size: 0.75rem;
+
+/*Color*/
+$primary-blue: hsl(223, 87%, 63%);
+$paler-blue: hsl(223, 100%, 88%);
+$pale-blue: hsl(218, 60%, 90%);
+$dark-blue: hsl(209, 33%, 12%);
+$light-red: hsl(354, 100%, 66%);
+$neutral-gray: hsl(0, 0%, 59%);
+$shawdow-color:  hsla(225, 90%, 50%, 0.2);
+
+	
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.email-invalid {
+	border: 1px solid $light-red;
+}
+
+body {
+	align-items: center;
+	box-sizing: border-box;
+	color: $dark-blue;
+	display: flex;
+	flex-direction: column;
+	font-family: $default-font;
+	font-size: $default-font-size;
+	justify-content: center;
+	padding: 0 $space-lg;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	
+	.container {
+		align-items: center;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: auto;
+
+		header {
+			margin: $space-xl  $space-xl;
+			margin-bottom: $space-lg;
+			// padding: $space-xl $space-xl;
+			header > img {
+				height: auto;
+				width: 100%;
+			}
+		}
+
+		main {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			height: auto;
+			width: 100%;
+			
+
+			.title {
+				color: $neutral-gray;
+				font-size: $mobile-header-size;
+				font-weight: 300;
+				padding: $space-sm $space-sm;
+
+				span {
+					color: $dark-blue;
+					font-weight: 700;
+				}
+			}
+
+			.subtitle {
+				
+				font-size: $mobile-body-size;
+				padding: $space-sm $space-sm;
+			}
+
+			.sub-section {
+				display: flex;
+				flex-direction: column;
+				padding: $space-md 0;
+				position: relative;
+				width: 100%;
+
+				.input-box {
+					border: 1px solid $paler-blue;
+					border-radius: 30px;
+					display: flex;
+					align-items: center;
+					margin: $space-sm $space-lg;
+					padding: $space-md $space-lg;
+
+					input {
+						border: none;
+						outline: none;
+						width: 100%;
+						
+						&::placeholder {
+							color: $pale-blue;
+							font-weight: 300;
+							opacity: 0.8;
+						}
+					}
+				}
+
+				.error-message {
+					text-align: center;
+					color: $light-red;
+					display: none;
+					font-size: 0.8rem;
+					font-style: italic;
+					margin: 0 $space-lg;
+					margin-bottom: $space-sm;
+					padding: 0 $space-lg;
+
+				}
+
+				.notify-btn {
+					background-color: $primary-blue;
+					border: none;
+					border-radius: 30px;
+					box-shadow: 2px 5px 10px 1px $shawdow-color;
+					color: white;
+					cursor: pointer;
+					font-weight: 600;
+					margin: $space-sm $space-lg;
+					padding: $space-md 0;
+					outline: none;
+
+					&:active {
+						opacity: 0.9;
+					}
+				}
+			}
+
+			.illu-section {
+				margin: $space-xl $space-md;
+
+				img {
+					height: auto;
+					width: 100%;
+				}
+			}
+
+			.social-section {
+				display: flex;
+				flex-direction: row;
+
+				a { 
+					color: $primary-blue;
+					text-decoration: none; 
+
+					div {
+						border: 1px solid $pale-blue;
+						border-radius: 100%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-size: 1.3em;
+						margin: $space-sm $space-sm;
+						height: 40px;
+						width: 40px;
+					}
+
+					&:hover {				
+						color: white;
+
+						div {
+							background-color: $primary-blue;
+						}
+					}
+				}
+			}
+		}
+		
+		footer {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			
+			.copyright-footer {
+				color: $neutral-gray;
+				font-size: $mobile-body-size;
+				margin: $space-lg $space-lg;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 640px) {
+	body {
+		padding: 0 20%;
+	}
+}
+
+@media screen and (min-width: 1008px) {
+	body {
+		padding: 0 25%;
+
+		.container {
+			height: 100%;
+			width: 100%;
+		
+			main {
+				.title {
+					font-size: $header-font-size;
+					white-space: nowrap;
+				}
+
+				.subtitle {
+					font-size: $body-font-size;
+				}
+
+				.sub-section {
+					flex-direction: row;
+					justify-content: center;
+					padding: $space-md 0;
+					width: 90%;
+					
+					.input-box {
+						margin-left: $space-xs;
+						margin-right: $space-xs;
+						width: 100%;
+					}
+
+					.error-message {
+						position: absolute;
+						bottom: -$space-sm;
+						left: -$space-lg;
+					}
+
+					.notify-btn {
+						margin-left: $space-xs;
+						margin-right: $space-xs;
+						padding: $space-md $space-xl;
+						white-space: nowrap;
+					}
+				}
+			}
+		}
+	}
+	
+}

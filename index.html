@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+	<script src="https://kit.fontawesome.com/001cef10a7.js" crossorigin="anonymous"></script>
+
   <title>Frontend Mentor | Ping coming soon page</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -15,20 +18,78 @@
   </style>
 </head>
 <body>
+	<div class="container">
+		<header>
+			<img src="./images/logo.svg" alt="logo">
+		</header>
+		<main>
+			<div class="title">	
+				We are launching <span>soon!</span>
+			</div>
+			<div class="subtitle">
+				Subscribe and get notified
+			</div>
+			<form class="sub-section" name="email_form" action="#">
+				<div class="input-box">
+					<input type="email" placeholder="Your email address..." name="email_input">
+				</div>
+				<div class="error-message">
+					<p>Please provide a valid email address</p>
+				</div>
+				<button class="notify-btn" onclick="validateEmail()">Notify Me</button>
+			</form>
+			<div class="illu-section">
+				<img src="./images/illustration-dashboard.png" alt="dashboard">
+			</div>
+			<div class="social-section">
+				<a href="#">
+					<div>
+						<i class="fab fa-facebook-f"></i>
+					</div>
+				</a>
+				<a href="#">
+					<div>
+						<i class="fab fa-twitter"></i>
+					</div>
+				</a>
+				<a href="#">
+					<div>
+						<i class="fab fa-instagram"></i>
+					</div>
+				</a>
+			</div>
+		</main>
+		<footer>
+			<p class="copyright-footer">	
+				&copy; Copyright Ping. All rights reserved.
+			</p>
+			<p class="attribution">
+				Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+				Coded by <a href="#">Your Name Here</a>.
+			</p>
+		</footer>
+	</div>
 
-  We are launching soon!
-
-  Subscribe and get notified
-
-  Notify Me
-
-  &copy; Copyright Ping. All rights reserved.
-
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
+	<script>
+		document.querySelector('.sub-section .notify-btn').addEventListener('click', (event) => {
+			event.preventDefault()
+		})
+		let validateEmail = () => {
+			let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+			let emailForm = document.email_form
+			let emailInput = emailForm.email_input
+			let inputBox = document.querySelector('.sub-section div')
+			let errorMsg = document.querySelector('.sub-section .error-message')
+			if(emailInput.value.match(mailformat)) {
+				inputBox.style = null
+				errorMsg.style = null
+				emailInput.value = ''
+			}
+			else {
+				inputBox.style.border = '1px solid hsl(354, 100%, 66%)'
+				errorMsg.style.display = 'block'
+			}
+		}
+	</script>
 </body>
 </html>
